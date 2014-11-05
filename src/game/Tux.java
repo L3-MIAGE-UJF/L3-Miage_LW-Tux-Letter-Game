@@ -6,6 +6,7 @@
 
 package game;
 import env3d.EnvObject;
+import org.lwjgl.input.Keyboard;
 
 /**
  *
@@ -19,8 +20,23 @@ public class Tux extends EnvObject {
         setY(y);
         setZ(z);
         setScale(1);
-        setTexture("models/tux.png");
+        setTexture("models/tux/tux.png");
         setModel("models/tux/tux.obj");
     }
     
+    /**
+     *
+     * @param currentKey
+     */
+    public void move(int currentKey){
+    
+        int step = 10;
+        
+        if (currentKey == Keyboard.KEY_LEFT) {
+            this.setRotateY(180);
+            this.setZ(this.getZ() - step);
+        }
+    }
+    
 }
+    

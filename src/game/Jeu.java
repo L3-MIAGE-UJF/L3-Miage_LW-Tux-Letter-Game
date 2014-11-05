@@ -30,6 +30,12 @@ public class Jeu {
     // Turn off the default controls
     env.setDefaultControl(false);
  
+    Tux tux;
+    tux = new Tux(20,20,50);
+    env.addObject(tux);
+          
+    
+    
     //initialize
     finished = false;
     }
@@ -38,11 +44,18 @@ public class Jeu {
     public void jouer (){
              // The main game loop
         finished = false;
+        
+       
+        
         while (!finished) {
             //1 is for escape key
             if (env.getKey() == 1) {
                 finished = true;
             }
+           
+            // a debuguer et completer pour les autres mouvements
+            // tux.move(env.getKey());
+            
             // Update display
             env.advanceOneFrame();
         }
