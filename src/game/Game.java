@@ -6,21 +6,27 @@
 
 package game;
 
+import env3d.Env;
+import management.DevineLeMot;
+
 /**
  *
  * @author aouna
  */
 public class Game {
-
-    /**
-     * @param args the command line arguments
-     */
+    static private Env env = new Env();
+    static private Room room = new Room();
+    static private String mot_a_deviner= "salutation";
+    
     public static void main(String args[]) {
     
         //Instanciate a new Jeu
-        Jeu jeu = new Jeu();
+        //Jeu jeu = new Jeu();
         //Play the game
-        jeu.jouer();
+        //jeu.jouer();
+        
+        DevineLeMot devine_le_mot = new DevineLeMot(mot_a_deviner, env, room);
+        devine_le_mot.jouer();
     }
     
 }

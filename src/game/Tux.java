@@ -24,34 +24,48 @@ public class Tux extends EnvObject {
         setModel("models/tux/tux.obj");
     }
     
-    /**
-     *
-     * @param currentKey
-     */
-    
-    
     public void move_tux(int currentKey){
-        int step = 10;
+        int step = 1;
         
-        switch (currentKey ) {
+        switch (currentKey) {
             case Keyboard.KEY_LEFT:
                 this.setRotateY(270);
-                this.setX(this.getX() - step);
+                if ((this.getX()-step)>0) {
+                    this.setX(this.getX() - step);
+                }
+                else {
+                    this.setX(0);
+                }
             break;
                 
             case Keyboard.KEY_RIGHT:
                 this.setRotateY(90);
-                this.setX(this.getX() + step);
+                if ((this.getX()+step)<50) {
+                    this.setX(this.getX() + step);
+                }
+                else {
+                    this.setX(50);
+                }
             break;
                 
             case Keyboard.KEY_UP:
                 this.setRotateY(180);
-                this.setZ(this.getZ() - step);
+                if ((this.getZ()-step)>0) {
+                    this.setZ(this.getZ() - step);
+                }
+                else {
+                    this.setZ(0);
+                }
             break;
                 
             case Keyboard.KEY_DOWN:
                 this.setRotateY(0);
-                this.setZ(this.getZ() + step);
+                if ((this.getZ()+step)<50) {
+                    this.setZ(this.getZ() + step);
+                }
+                else {
+                    this.setZ(50);
+                }
             break;
                 
         }

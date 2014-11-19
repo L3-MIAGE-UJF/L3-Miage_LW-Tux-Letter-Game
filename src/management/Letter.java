@@ -19,14 +19,19 @@ public class Letter extends EnvObject {
     
     Letter(char l, double x, double y){
         setX(x);
-        setY(y);
+        setY(2);
+        setZ(y);
         setScale(1);
-        setModel("models/cube/cube.obj");
+                
         if ( l == ' '){
+            setModel("models/cube/cube.obj");
             this.letter = ' ';
             setTexture("models/cube/cube.png");
-        
         }
-    }
-    
+        else {
+            setModel("models/letter/cube.obj");
+            this.letter=l;
+            setTexture("models/letter/"+l+".png");
+        }
+    }    
 }
