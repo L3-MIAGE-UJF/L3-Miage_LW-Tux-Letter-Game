@@ -20,7 +20,7 @@ public class Dico {
     private ArrayList<String> listLevel5;
     private String pathToDicoFile;
     
-    public void Dico(String pathToDicoFile) {
+    public Dico(String pathToDicoFile) {
         this.pathToDicoFile=pathToDicoFile;
         listLevel1 = new ArrayList<String>();
         listLevel2 = new ArrayList<String>();
@@ -31,32 +31,31 @@ public class Dico {
     
     public String getWordFromListLevel(int level) {
         int indicerand=0;
-        double random = (int) Math.random(); 
         String mot_choisi = "";
                 
         switch(level) {
             case 1:
-                indicerand= (int) random*listLevel1.size();
+                indicerand= (int) (Math.random()*listLevel1.size());
                 mot_choisi=listLevel1.get(indicerand);
             break;
                 
             case 2:
-                indicerand= (int) random*listLevel2.size();
+                indicerand= (int) (Math.random()*listLevel2.size());
                 mot_choisi=listLevel2.get(indicerand);
             break;
                 
             case 3:
-                indicerand= (int) random*listLevel3.size();
+                indicerand= (int) (Math.random()*listLevel3.size());
                 mot_choisi=listLevel3.get(indicerand);
             break;
                 
             case 4:
-                indicerand= (int) random*listLevel4.size();
+                indicerand= (int) (Math.random()*listLevel4.size());
                 mot_choisi=listLevel4.get(indicerand);
             break;
                 
             case 5:
-                indicerand= (int) random*listLevel5.size();
+                indicerand= (int) (Math.random()*listLevel5.size());
                 mot_choisi=listLevel5.get(indicerand);
             break;
                 
@@ -100,21 +99,4 @@ public class Dico {
     public String getPathToDicoFile() {
         return this.pathToDicoFile;
     }
-}   
-
-/*
-
-    ArrayList al = new ArrayList();
-    al.add(12);
-    al.add("Une chaîne de caractères !");
-    al.add(12.20f);
-    al.add('d');
-                
-    for(int i = 0; i < al.size(); i++)
-    {
-      System.out.println("donnée à l'indice " + i + " = " + al.get(i));
-    }           
-      al.remove("F");
-      al.remove(2);
-      System.out.println("Size of al after deletions: " + al.size());
-*/
+}
