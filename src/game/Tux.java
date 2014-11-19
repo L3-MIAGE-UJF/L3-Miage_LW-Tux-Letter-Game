@@ -28,13 +28,32 @@ public class Tux extends EnvObject {
      *
      * @param currentKey
      */
-    public void move(int currentKey){
     
+    
+    public void move_tux(int currentKey){
         int step = 10;
         
-        if (currentKey == Keyboard.KEY_LEFT) {
-            this.setRotateY(180);
-            this.setZ(this.getZ() - step);
+        switch (currentKey ) {
+            case Keyboard.KEY_LEFT:
+                this.setRotateY(270);
+                this.setX(this.getX() - step);
+            break;
+                
+            case Keyboard.KEY_RIGHT:
+                this.setRotateY(90);
+                this.setX(this.getX() + step);
+            break;
+                
+            case Keyboard.KEY_UP:
+                this.setRotateY(180);
+                this.setZ(this.getZ() - step);
+            break;
+                
+            case Keyboard.KEY_DOWN:
+                this.setRotateY(0);
+                this.setZ(this.getZ() + step);
+            break;
+                
         }
     }
     

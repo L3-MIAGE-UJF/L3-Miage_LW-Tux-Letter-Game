@@ -6,6 +6,8 @@
 
 package game;
 import env3d.Env;
+import org.lwjgl.input.Keyboard;
+
 
 /**
  *
@@ -29,35 +31,30 @@ public class Jeu {
     env.setCameraPitch(-30);
     // Turn off the default controls
     env.setDefaultControl(false);
- 
-    Tux tux;
-    tux = new Tux(20,20,50);
+    this.tux = new Tux(20,20,50);
     env.addObject(tux);
-          
-    
     
     //initialize
     finished = false;
     }
-        
-        
+    
     public void jouer (){
              // The main game loop
         finished = false;
-        
        
-        
         while (!finished) {
-            //1 is for escape key
-            if (env.getKey() == 1) {
-                finished = true;
-            }
-           
+                         
             // a debuguer et completer pour les autres mouvements
-            // tux.move(env.getKey());
-            
+            int e=env.getKey();
             // Update display
             env.advanceOneFrame();
+            this.tux.move_tux(e);
+            
+            //q is for escape key
+            if (env.getKey() == Keyboard.KEY_Q) {
+                finished = true;
+                System.out.println("fini!");
+            }
         }
         // Just a little clean up
         env.exit();
