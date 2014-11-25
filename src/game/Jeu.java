@@ -62,15 +62,8 @@ public class Jeu {
     }
     
     public void jouer(){
-        lecturec = new LectureClavier();
-        boolean rejouer;
-        
-        do{
             // reinitialiser l'interface graphique 
             devinelemot.jouer();
-            System.out.println("voulez vous rejouer ? (o/n)");
-            rejouer=lecturec.lireOuiNon();
-        }while (rejouer);
-        env.exit();
+            
     }
 }

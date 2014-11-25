@@ -7,7 +7,7 @@
 package game;
 
 import env3d.Env;
-import management.DevineLeMot;
+import management.*;
 
 /**
  *
@@ -19,13 +19,18 @@ public class Game {
     static private String mot_a_deviner= "po";
     
     public static void main(String args[]) {
-    
+        boolean rejouer;
+        LectureClavier lecturec;
+         lecturec = new LectureClavier();
         //Instanciate a new Jeu
-        Jeu jeu = new Jeu(mot_a_deviner, env, room);
-        //Play the game
-        
-        
-        jeu.jouer();
+        do{
+            Jeu jeu = new Jeu(mot_a_deviner, env, room);
+            //Play the game
+            jeu.jouer();
+           System.out.println("voulez vous rejouer ? (o/n)");
+           rejouer=lecturec.lireOuiNon();
+        }while(rejouer);
+        env.exit();
     }
-    
+       
 }
