@@ -14,7 +14,7 @@ import management.Partie;
  */
 public class testPartie {
     public static void main(String[] args) {    
-        partie Partie = new Partie()
+       // partie Partie = new Partie()
         
     }
 }

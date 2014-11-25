@@ -54,7 +54,7 @@ public class Partie {
     
     public int getNiveau(){
         
-        return this.nveau;
+        return this.niveau;
     }
     
     @Override
