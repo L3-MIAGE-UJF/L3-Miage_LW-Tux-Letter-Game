@@ -12,6 +12,7 @@ import management.Dico;
  *
  * @author douchetm
  */
+
 public class TestDico {
     public static void main(String[] args) {
         Dico doci = new Dico("/tmp/lol");
