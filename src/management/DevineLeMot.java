@@ -60,43 +60,65 @@ public class DevineLeMot {
     }
     
     public void jouer(){
-        int e;
         // The main game loop
         finished = false;
         
-        while (!finished) {
+        chrono.start();
+        
+        while (!finished&&letters.size()>0&&chrono.remainsTime()>=0) {
                          
-            // a debuguer et completer pour les autres mouvements
+            checkUserKey();
+            if (collision(tux,letters.get(0))) {
+                env.removeObject(letters.get(0));
+                letters.remove(0);
+                System.out.println("lettre remove");
+            }          
+        }
+
+        chrono.stop();
+        System.out.println("nombre de lettres restantes:"+letters.size());
+        System.out.println("temps restant:"+chrono.remainsTime());
+        System.out.println("temps:"+chrono.getHours()+":"+chrono.getMinutes()+":"+chrono.getSeconds());
+        
+        
+        // Just a little clean up
+        env.exit();
+    }
+//    
+    public void checkUserKey() {
+          int e;
+//        recup touche presse et appelle methode pour le faire bouger
             e=this.env.getKey();
             // Update display
             this.env.advanceOneFrame();
             this.tux.move_tux(e);
-            
             //q is for escape key
             if (e == Keyboard.KEY_Q) {
                 finished = true;
                 System.out.println("INSERT COIN - Partie terminée !");
             }
-        }
-        // Just a little clean up
-        env.exit();
     }
-//    
-//    public void checkUserKey() {
-//        
-//    }
-//    
-//    private Letter tuxMeetsLetter() {
-//        
-//    }
-//    
-//    private double distance(Tux tux, Letter letter) {
-//        
-//    }
-//    
-//    private boolean collision(Tux tux, Letter letter) {
-//        
-//    }
+   
+    private boolean tuxMeetsLetter() {
+        return collision(this.tux,letters.get(0));
+    }
+    
+    private double distance(Tux tux, Letter letter) {
+        // renvoie distance tux a lettre
+        // calcul distance 
+        double distance;
+        distance = Math.sqrt(((tux.getX()-letter.getX())*(tux.getX()-letter.getX()))+((tux.getZ()-letter.getZ())*(tux.getZ()-letter.getZ())));
+        return distance;
+    }
+    
+    private boolean collision(Tux tux, Letter letter) {
+        if (distance(tux,letter)==0.0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 //    
 //    private int getNbLettresRestantes() {
 //        

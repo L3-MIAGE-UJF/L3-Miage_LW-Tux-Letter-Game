@@ -16,7 +16,7 @@ import management.DevineLeMot;
 public class Game {
     static private Env env = new Env();
     static private Room room = new Room();
-    static private String mot_a_deviner= "salutation";
+    static private String mot_a_deviner= "po";
     
     public static void main(String args[]) {
     

@@ -15,15 +15,15 @@ public class Chronometre {
     }
 
     public void start() {
-        begin = System.currentTimeMillis();
+        this.begin = System.currentTimeMillis();
     }
 
     public void stop() {
-        end = System.currentTimeMillis();
+        this.end = System.currentTimeMillis();
     }
 
     public long getTime() {
-        return end - begin;
+        return System.currentTimeMillis();
     }
 
     public long getMilliseconds() {
@@ -31,21 +31,21 @@ public class Chronometre {
     }
 
     public int getSeconds() {
-        return (int) ((end - begin) / 1000.0);
+        return (int) ((end - begin) / 1000.0) % 60;
     }
  
-    public double getMinutes() {
-        return (double) getSeconds() / 60.0;
+    public int getMinutes() {
+        return (int) (getSeconds() / 60) % 60;
     }
 
-    public double getHours() {
-        return (double) getMinutes() / 60.0;
+    public int getHours() {
+        return (int) getMinutes() / 60;
     }
 
     public int remainsTime() {
-        current = System.currentTimeMillis();
+        current = getTime();
         int timeSpent;
-        timeSpent = (int) ((current - begin)/1000.0);
+        timeSpent = (int) ((begin + (limite*1000) - current)/1000.0);
         return timeSpent;
     }
 }
