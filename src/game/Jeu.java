@@ -27,15 +27,14 @@ public class Jeu {
     
     public Jeu(String mot, Env env, Room room) {
         lecturec = new LectureClavier();
-        
-        this.first=true;
-                
         System.out.println("Entrez le niveau : ");
-        this.level=lecturec.lireEntier();      
-        
+        this.level=lecturec.lireEntier();
         this.dico= new Dico("lol");
-        dico.addWordToDico(1, "truc");
-        dico.addWordToDico(1, "pilili");
+        this.first=true;
+        dico.addWordToDico(1, "bzah");
+        dico.addWordToDico(2, "bzakoulih");
+        mot=dico.getWordFromListLevel(level);
+        
         init_env(mot, env, room);
         devinelemot = new DevineLeMot(mot, this.env, room);
     }
@@ -63,6 +62,15 @@ public class Jeu {
     }
     
     public void jouer(){
-        devinelemot.jouer();
+        lecturec = new LectureClavier();
+        boolean rejouer;
+        
+        do{
+            // reinitialiser l'interface graphique 
+            devinelemot.jouer();
+            System.out.println("voulez vous rejouer ? (o/n)");
+            rejouer=lecturec.lireOuiNon();
+        }while (rejouer);
+        env.exit();
     }
 }

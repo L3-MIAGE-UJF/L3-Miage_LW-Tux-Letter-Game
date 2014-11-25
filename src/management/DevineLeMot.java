@@ -73,7 +73,7 @@ public class DevineLeMot {
         
         
         // Just a little clean up
-        env.exit();
+        
     }
 //    
     public void checkUserKey() {

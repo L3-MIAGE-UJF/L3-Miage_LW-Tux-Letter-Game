@@ -23,6 +23,8 @@ public class Game {
         //Instanciate a new Jeu
         Jeu jeu = new Jeu(mot_a_deviner, env, room);
         //Play the game
+        
+        
         jeu.jouer();
     }
     
