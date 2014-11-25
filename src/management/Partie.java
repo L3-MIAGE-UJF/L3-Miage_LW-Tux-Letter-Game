@@ -37,11 +37,11 @@ public class Partie {
         
             Document doc = p.parse("../xml/profil.xml");
             
-            this.date=doc.getElementsByTagName("game").item(0).getAttributes().getNamedItem("date").getTextContent();
-            this.niveau=doc.getElementsByTagName("game").item(0).getAttributes().getNamedItem("date").getTextContent();
-            this.mot=doc.getElementsByTagName("game").item(0).getElementsByTagName("word").item(0).getTextContent();
-            this.date=doc.getElementsByTagName("game").item(0).getAttributes().getNamedItem("date").getTextContent();
-            
+//            this.date=doc.getElementsByTagName("game").item(0).getAttributes().getNamedItem("date").getTextContent();
+//            this.niveau=doc.getElementsByTagName("game").item(0).getAttributes().getNamedItem("date").getTextContent();
+//            this.mot=doc.getElementsByTagName("game").item(0).getElementsByTagName("word").item(0).getTextContent();
+//            this.date=doc.getElementsByTagName("game").item(0).getAttributes().getNamedItem("date").getTextContent();
+//            
             System.out.println(doc.getElementsByTagName("game").item(0).getAttributes().item(0));
             
         } catch (Exception e) {
