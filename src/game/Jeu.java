@@ -4,61 +4,65 @@
  * and open the template in the editor.
  */
 
-package game;
-import env3d.Env;
-import org.lwjgl.input.Keyboard;
 
+package game;
+
+import env3d.Env;
+import management.*;
+import java.util.ArrayList;
+import org.lwjgl.input.Keyboard;
 
 /**
  *
- * @author aouna
+ * @author douchetm
  */
 public class Jeu {
     private Env env;
     private boolean finished;
-    private Tux tux;
+    private boolean first;
+    private DevineLeMot devinelemot;
+    private int level;
+    private Dico dico;
+    private LectureClavier lecturec;
     
-    public Jeu(){
-    // Create the new environment.  Must be done in the same
-    // method as the game loop
-    env = new Env();
-    // Instanciate a room
-    Room room;
-    room = new Room();
-    env.setRoom(room);
-    // Sets up the camera
-    env.setCameraXYZ(20, 30, 75);
-    env.setCameraPitch(-30);
-    // Turn off the default controls
-    env.setDefaultControl(false);
-    this.tux = new Tux(20,20,50);
-    env.addObject(tux);
-    
-    //initialize
-    finished = false;
+    public Jeu(String mot, Env env, Room room) {
+        lecturec = new LectureClavier();
+        
+        this.first=true;
+                
+        System.out.println("Entrez le niveau : ");
+        this.level=lecturec.lireEntier();      
+        
+        this.dico= new Dico("lol");
+        dico.addWordToDico(1, "truc");
+        dico.addWordToDico(1, "pilili");
+        init_env(mot, env, room);
+        devinelemot = new DevineLeMot(mot, this.env, room);
     }
     
-    public void jouer (){
-             // The main game loop
-        finished = false;
-       
-        while (!finished) {
-                         
-            // a debuguer et completer pour les autres mouvements
-            int e=env.getKey();
-            // Update display
-            env.advanceOneFrame();
-            this.tux.move_tux(e);
-            
-            //q is for escape key
-            if (env.getKey() == Keyboard.KEY_Q) {
-                finished = true;
-                System.out.println("fini!");
-            }
+    public void init_env(String mot, Env env, Room room){
+        if (first == true){
+            first=false;
+            this.env = env;
+
+            //Coupez et collez les paramètres caméra et contrôleur par défaut que nous avions déjà fait dans un précédent Tp, et les insérer à la fin du constructeur.
+
+            // Instanciate a room
+            this.env.setRoom(room);
+            // Sets up the camera
+            this.env.setCameraXYZ(20, 30, 75);
+            this.env.setCameraPitch(-30);
+            // Turn off the default controls
+            this.env.setDefaultControl(false);
+
         }
-        // Just a little clean up
-        env.exit();
+        else{
+            this.env.restart();
+        }
+        
     }
-         
     
+    public void jouer(){
+        devinelemot.jouer();
+    }
 }

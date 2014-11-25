@@ -33,20 +33,11 @@ public class DevineLeMot {
         
         this.tux = new Tux(20,2,25);
         this.env = env;
-        chrono = new Chronometre(10);
+        chrono = new Chronometre(20);
         letters = new ArrayList<Letter>();
         
         nbLettresRestantes=mot.length();
         
-        //Coupez et collez les paramètres caméra et contrôleur par défaut que nous avions déjà fait dans un précédent Tp, et les insérer à la fin du constructeur.
-
-        // Instanciate a room
-        env.setRoom(room);
-        // Sets up the camera
-        env.setCameraXYZ(20, 30, 75);
-        env.setCameraPitch(-30);
-        // Turn off the default controls
-        env.setDefaultControl(false);
         env.addObject(tux);
         
         for (int i = 0; i<mot.length();i++) {

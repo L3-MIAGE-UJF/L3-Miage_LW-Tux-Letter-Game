@@ -21,12 +21,9 @@ public class Game {
     public static void main(String args[]) {
     
         //Instanciate a new Jeu
-        //Jeu jeu = new Jeu();
+        Jeu jeu = new Jeu(mot_a_deviner, env, room);
         //Play the game
-        //jeu.jouer();
-        
-        DevineLeMot devine_le_mot = new DevineLeMot(mot_a_deviner, env, room);
-        devine_le_mot.jouer();
+        jeu.jouer();
     }
     
 }

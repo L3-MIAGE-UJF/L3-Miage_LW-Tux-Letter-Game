@@ -17,7 +17,7 @@ import org.lwjgl.input.Keyboard;
 public class Letter extends EnvObject {
     private char letter;
     
-    Letter(char l, double x, double y){
+    public Letter(char l, double x, double y){
         setX(x);
         setY(2);
         setZ(y);
