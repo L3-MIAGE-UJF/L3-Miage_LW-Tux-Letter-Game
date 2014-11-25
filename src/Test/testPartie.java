@@ -14,7 +14,10 @@ import management.Partie;
  */
 public class testPartie {
     public static void main(String[] args) {    
-        partie Partie = new Partie()
+        Partie partie1 = new Partie("2013-12-11","indice",2);
         
+        Partie partie2;
+        
+        //partie2.getDomElement();
     }
 }
