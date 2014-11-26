@@ -6,24 +6,21 @@ and open the template in the editor.
 -->
 
 
-<dictionnaire>
-    <mot>
-        <niveaudiff>1</niveaudiff>
+<dico>
+    <mot niveaudiff= "1">       
         <lettre>c</lettre>
         <lettre>h</lettre>
         <lettre>o</lettre>
         <lettre>s</lettre>
         <lettre>e</lettre>
     </mot>
-    <mot>
-        <niveaudiff>1</niveaudiff>
+    <mot niveaudiff="2">
         <lettre>p</lettre>
         <lettre>o</lettre>
         <lettre>i</lettre>
         <lettre>d</lettre>
     </mot>
-    <mot>
-        <niveaudiff>2</niveaudiff>
+    <mot niveaudiff="2">       
         <lettre>m</lettre>
         <lettre>a</lettre>
         <lettre>i</lettre>
@@ -31,4 +28,4 @@ and open the template in the editor.
         <lettre>o</lettre>
         <lettre>n</lettre>
     </mot>
-</dictionnaire>
+</dico>
