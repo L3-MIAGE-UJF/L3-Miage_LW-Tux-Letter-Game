@@ -172,7 +172,7 @@ public class Dico extends DefaultHandler {
 	    //on ajoute le mot au dico.
             
             
-            addWordToDico(currentWordLevel.toString(),);
+//            addWordToDico(currentWordLevel.toString(),);
             //on  nettoie le buffer
             buffer = null;
         } else {
@@ -225,7 +225,5 @@ public class Dico extends DefaultHandler {
 
     public ArrayList<String> getListLevel5() {
         return listLevel5;
-    }
-
     }
 }
