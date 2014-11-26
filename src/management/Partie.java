@@ -22,26 +22,28 @@ public class Partie {
     private int temps;
     
     public Partie(String date, String mot, int level){
-        this.mot= mot;
-        this.niveau = level;
-        this.date = date;
+        this.mot=mot;
+        this.niveau=level;
+        this.date=date;
         this.trouve=0;
         this.temps=0;
     }
     
     public Partie(Element domPartie){
         try {
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder p = dbFactory.newDocumentBuilder();
-        
-            Document doc = p.parse("../xml/game.xml");
+//            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+//            DocumentBuilder p = dbFactory.newDocumentBuilder();
+//        
+//            Document doc = p.parse("../xml/game.xml");
             
             this.date=domPartie.getAttributes().getNamedItem("date").getTextContent();
             this.niveau=Integer.parseInt(domPartie.getAttributes().getNamedItem("date").getTextContent());
+            
             //this.niveau=Integer.parseInt(domPartie.getAttribute("date").getTextContent());
+            
             this.mot=domPartie.getElementsByTagName("word").item(0).getAttributes().getNamedItem("date").getTextContent();
             
-            System.out.println(doc.getElementsByTagName("game").item(0).getAttributes().item(0));
+            //System.out.println(doc.getElementsByTagName("game").item(0).getAttributes().item(0));
             
         } catch (Exception e) {
         }
@@ -55,23 +57,26 @@ public class Partie {
 
     */
     
-    /*
+    
     public Element getDomElement(Document doc){
+        Element retour=null;
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder p = dbFactory.newDocumentBuilder();
         
-            doc = p.parse("../xml/profil.xml");
+            doc = p.parse("../xml/game.xml");
             
-            System.out.println(doc.getElementsByTagName("game").item(0).getAttributes().item(0));
+            retour=(Element) doc.getElementsByTagName("game").item(0);
+
         } catch (Exception e) {
+            
         }
-        
-        return;
+        return retour;
     }
-    */
+    
     public void setTrouve(int nbLettresRestantes){
-        this.trouve=nbLettresRestantes;
+        // Calcul pourcentage de lettre trouvees
+        this.trouve=((this.mot.length()-nbLettresRestantes)*100)/this.mot.length();
     }
         
     public void setTemps(int temps){
@@ -83,7 +88,7 @@ public class Partie {
     }
     
     public String toString(){
-        return "A la date : "+date+" le mot "+mot+" dans le niveau "+niveau+" possede "+trouve+" lettres non decouvertes au bout de "+temps;
+        return "A la date : "+date+" le mot "+mot+" dans le niveau "+niveau+" possede "+trouve+" % de lettres trouvees au bout de "+temps;
     }
     
     /// Takes a date in XML format (i.e. ????-??-??) and returns a date

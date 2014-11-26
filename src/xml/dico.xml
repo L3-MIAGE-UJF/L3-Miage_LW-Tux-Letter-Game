@@ -8,15 +8,28 @@ and open the template in the editor.
 
 <dictionnaire>
     <mot>
-        <niveaudiff></niveaudiff>
-        <lettre></lettre>
-        <lettre></lettre>
-        <lettre></lettre>
+        <niveaudiff>1</niveaudiff>
+        <lettre>c</lettre>
+        <lettre>h</lettre>
+        <lettre>o</lettre>
+        <lettre>s</lettre>
+        <lettre>e</lettre>
     </mot>
     <mot>
-        <niveaudiff></niveaudiff>
-        <lettre></lettre>
-        <lettre></lettre>
-        <lettre></lettre>
+        <niveaudiff>2</niveaudiff>
+        <lettre>p</lettre>
+        <lettre>o</lettre>
+        <lettre>i</lettre>
+        <lettre>d</lettre>
+        <lettre>s</lettre>
+    </mot>
+    <mot>
+        <niveaudiff>2</niveaudiff>
+        <lettre>m</lettre>
+        <lettre>a</lettre>
+        <lettre>i</lettre>
+        <lettre>s</lettre>
+        <lettre>o</lettre>
+        <lettre>n</lettre>
     </mot>
 </dictionnaire>
