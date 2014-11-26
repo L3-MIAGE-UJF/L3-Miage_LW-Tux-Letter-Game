@@ -16,7 +16,7 @@ import management.*;
 public class Game {
     static private Env env = new Env();
     static private Room room = new Room();
-    static private String mot_a_deviner= "po";
+    static private String mot_a_deviner= "chose";
     
     public static void main(String args[]) {
         boolean rejouer;

@@ -40,6 +40,8 @@ public class DevineLeMot {
         
         env.addObject(tux);
         
+        env.setDisplayStr(mot);
+        
         for (int i = 0; i<mot.length();i++) {
             randomx=(int)(Math.random()*40+1);
             randomz=(int)(Math.random()*50+1);

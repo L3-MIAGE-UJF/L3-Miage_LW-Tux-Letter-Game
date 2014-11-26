@@ -25,14 +25,24 @@ public class Jeu {
     private Dico dico;
     private LectureClavier lecturec;
     
+    private Profile profil;
+    
     public Jeu(String mot, Env env, Room room) {
+        profil = new Profile("Jack", "11/06/1984");
+        
         lecturec = new LectureClavier();
+        
+        // A modifier ? lire last niveau dans profil 
+        
         System.out.println("Entrez le niveau : ");
         this.level=lecturec.lireEntier();
-        this.dico= new Dico("lol");
+        this.dico= new Dico("../xml/dico.xml");
         this.first=true;
-        dico.addWordToDico(1, "bzah");
-        dico.addWordToDico(2, "bzakoulih");
+        
+        dico.addWordToDico(1, "chose");
+        dico.addWordToDico(1, "poid");
+        dico.addWordToDico(2, "maison");
+        
         mot=dico.getWordFromListLevel(level);
         
         init_env(mot, env, room);
