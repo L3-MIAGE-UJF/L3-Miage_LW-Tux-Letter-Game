@@ -9,12 +9,11 @@ package management;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
 import org.w3c.dom.Element;
+import java.io.File;
 
-/**
- *
- * @author MaximilienD
- */
 public class Partie {
     private String date;
     private String mot;
@@ -35,13 +34,13 @@ public class Partie {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder p = dbFactory.newDocumentBuilder();
         
-            Document doc = p.parse("../xml/profil.xml");
+            Document doc = p.parse("../xml/game.xml");
             
-//            this.date=doc.getElementsByTagName("game").item(0).getAttributes().getNamedItem("date").getTextContent();
-//            this.niveau=doc.getElementsByTagName("game").item(0).getAttributes().getNamedItem("date").getTextContent();
-//            this.mot=doc.getElementsByTagName("game").item(0).getElementsByTagName("word").item(0).getTextContent();
-//            this.date=doc.getElementsByTagName("game").item(0).getAttributes().getNamedItem("date").getTextContent();
-//            
+            this.date=domPartie.getAttributes().getNamedItem("date").getTextContent();
+            this.niveau=Integer.parseInt(domPartie.getAttributes().getNamedItem("date").getTextContent());
+            //this.niveau=Integer.parseInt(domPartie.getAttribute("date").getTextContent());
+            this.mot=domPartie.getElementsByTagName("word").item(0).getAttributes().getNamedItem("date").getTextContent();
+            
             System.out.println(doc.getElementsByTagName("game").item(0).getAttributes().item(0));
             
         } catch (Exception e) {
@@ -72,22 +71,19 @@ public class Partie {
     }
     */
     public void setTrouve(int nbLettresRestantes){
-        
+        this.trouve=nbLettresRestantes;
     }
         
     public void setTemps(int temps){
-        
+        this.temps=temps;
     }
     
     public int getNiveau(){
-        
         return this.niveau;
     }
     
-    @Override
     public String toString(){
-        
-        return "blabla";
+        return "A la date : "+date+" le mot "+mot+" dans le niveau "+niveau+" possede "+trouve+" lettres non decouvertes au bout de "+temps;
     }
     
     /// Takes a date in XML format (i.e. ????-??-??) and returns a date

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package management;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,7 +15,7 @@ public class Profile {
     private String nom;
     private String dateNaissance;
     private int avatar;
-    private arrayList<Partie> Parties;
+    private ArrayList<Partie> Parties;
     
     public Profile(String nom, String dateNaissance){
         this.nom=nom;
